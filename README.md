@@ -7,7 +7,7 @@
 You can download or clone this project by running this command from your terminal:
 
 ```
-https://github.com/hatchways-community/87776ec6df4c41fc821b304fbc5695fb.git
+git clone https://github.com/Ibaslogic/simple-todo-app
 ```
 
 This will create a directory in the name of the project folder.
