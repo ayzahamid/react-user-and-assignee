@@ -1,28 +1,29 @@
 import React from "react";
+import Tag from "./Tag";
 
-class TodoItem extends React.Component {
-  render() {
-    const completedStyle = {
-      fontStyle: "italic",
-      color: "#d35e0f",
-      opacity: 0.4,
-      textDecoration: "line-through"
-    };
+const TodoItem = (props) => {
+  const completedStyle = {
+    fontStyle: "italic",
+    color: "#d35e0f",
+    opacity: 0.4,
+    textDecoration: "line-through"
+  };
 
-    const { completed, id, title } = this.props.todo;
+  const { completed, id, title, assignee, tags } = props.todo;
 
-    return (
-      <li className="todo-item">
-        <input
-          type="checkbox"
-          checked={completed}
-          onChange={() => this.props.handleChangeProps(id)}
-        />
-        <button onClick={() => this.props.deleteTodoProps(id)}>Delete</button>
-        <span style={completed ? completedStyle : null}>{title}</span>
-      </li>
-    );
-  }
+  return (
+    <li className="todo-item">
+      <input
+        type="checkbox"
+        checked={completed}
+        onChange={() => props.handleChangeProps(id)}
+      />
+      <button onClick={() => props.deleteTodoProps(id)}>Delete</button>
+      <span style={completed ? completedStyle : null}>{title}</span>
+      <p>{assignee && `Assigned To: ${assignee}` }</p>
+      <p><Tag tags={tags}></Tag></p>
+    </li>
+  );
 }
 
 export default TodoItem;
